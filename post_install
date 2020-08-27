@@ -1,0 +1,57 @@
+#!/bin/bash
+
+## Removendo travas do apt ##
+
+sudo rm /var/lib/dpkg/lock-frontend ; sudo rm /var/cache/apt/archives/lock ;
+
+## Atualizando o repositório ##
+
+sudo apt update && 
+
+## Instalando Extras ##
+
+
+sudo apt install ubuntu-restricted-extras libavcodec-extra ffmpeg rar unrar zip unzip xz-utils p7zip-full p7zip-rar sharutils file-roller -y
+
+## Instalando Programas ##
+
+sudo apt install synaptic gparted caffeine audacity gimp vlc steam 
+
+## Instalando Lutris ##
+
+sudo add-apt-repository ppa:lutris-team/lutris -y &&
+sudo apt-get update && sudo apt-get install lutris -y
+
+## Software de bateria ##
+
+sudo add-apt-repository ppa:linrunner/tlp -y &&
+sudo apt-get update &&
+sudo apt-get install tlp tlp-rdw -y &&
+sudo tlp start 
+
+## Pacotes Snap ##
+
+sudo snap install spotify &&
+sudo snap install wps-office-multilang &&
+sudo snap install discord &&
+sudo snap install handbrake-jz
+
+## Brave Browser ##
+
+curl -s https://brave-browser-apt-release.s3.brave.com/brave-core.asc | sudo apt-key --keyring /etc/apt/trusted.gpg.d/brave-browser-release.gpg add - &&
+echo "deb [arch=amd64] https://brave-browser-apt-release.s3.brave.com/ stable main" | sudo tee /etc/apt/sources.list.d/brave-browser-release.list &&
+sudo apt update && sudo apt install brave-browser -y
+
+## Ubuntu Tweaks ##
+
+sudo add-apt-repository universe -y && 
+sudo apt install gnome-tweak-tool -y
+
+## Java para Rip-me ##
+
+sudo apt install default-jre default-jdk -y
+
+## Atualizando o sistema ##
+
+sudo apt update && sudo apt upgrade -y
+
